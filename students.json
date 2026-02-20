@@ -1,0 +1,66 @@
+[
+    {
+        "id": "S101",
+        "name": "Alexander Hamilton",
+        "semester": "5th Semester",
+        "subjects": ["Data Structures", "Database Management", "Calculus II"],
+        "contact": "+1 555-0101",
+        "email": "alex.h@university.edu"
+    },
+    {
+        "id": "S102",
+        "name": "Elena Gilbert",
+        "semester": "3rd Semester",
+        "subjects": ["Physics I", "Linear Algebra", "Computer Networks"],
+        "contact": "+1 555-0102",
+        "email": "elena.g@university.edu"
+    },
+    {
+        "id": "S103",
+        "name": "Barry Allen",
+        "semester": "7th Semester",
+        "subjects": ["Advanced Algorithms", "Artificial Intelligence", "Cybersecurity"],
+        "contact": "+1 555-0103",
+        "email": "barry.a@university.edu"
+    },
+    {
+        "id": "S104",
+        "name": "Diana Prince",
+        "semester": "2nd Semester",
+        "subjects": ["History", "Psychology", "English Composition"],
+        "contact": "+1 555-0104",
+        "email": "diana.p@university.edu"
+    },
+    {
+        "id": "S105",
+        "name": "Tony Stark",
+        "semester": "8th Semester",
+        "subjects": ["Quantum Physics", "Engineering Ethics", "Robotics"],
+        "contact": "+1 555-0105",
+        "email": "tony.s@university.edu"
+    },
+    {
+        "id": "S106",
+        "name": "Natasha Romanoff",
+        "semester": "4th Semester",
+        "subjects": ["Operating Systems", "Discrete Mathematics", "Cryptography"],
+        "contact": "+1 555-0106",
+        "email": "natasha.r@university.edu"
+    },
+    {
+        "id": "S107",
+        "name": "Steve Rogers",
+        "semester": "6th Semester",
+        "subjects": ["Software Engineering", "Computer Architecture", "Statistics"],
+        "contact": "+1 555-0107",
+        "email": "steve.r@university.edu"
+    },
+    {
+        "id": "S108",
+        "name": "Bruce Banner",
+        "semester": "1st Semester",
+        "subjects": ["Introduction to Programming", "Physics Basic", "Chemistry"],
+        "contact": "+1 555-0108",
+        "email": "bruce.b@university.edu"
+    }
+]
