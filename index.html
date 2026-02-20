@@ -3,29 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Quiz Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Student Details Portal</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        /* Base Styles - Black & Silver Professional Theme */
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #c0c0c0;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2.5rem;
+            margin-top: 40px;
+            text-shadow: 0 2px 10px rgba(192, 192, 192, 0.3);
+        }
+
+        /* Button Styling */
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        #showBtn {
+            padding: 15px 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #121212;
+            background: linear-gradient(135deg, #e8e8e8 0%, #a8a8a8 50%, #c0c0c0 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(192, 192, 192, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #showBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(192, 192, 192, 0.6);
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 50%, #e0e0e0 100%);
+        }
+
+        /* Container for Student Cards - 4 per row */
+        #studentContainer {
+            width: 95%;
+            max-width: 1400px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        /* Individual Student Card Styling */
+        .student-card {
+            background: linear-gradient(145deg, #1e1e1e 0%, #252525 100%);
+            border: 1px solid #333;
+            border-top: 4px solid #c0c0c0;
+            width: calc(25% - 25px); /* 4 cards per row */
+            min-width: 280px;
+            max-width: 320px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: 0.5s;
+        }
+
+        .student-card:hover::before {
+            left: 100%;
+        }
+
+        .student-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .student-card h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #c0c0c0;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .info-row {
+            margin: 12px 0;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .label {
+            color: #888;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .value {
+            color: #dcdcdc;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .subjects-list {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #aaa;
+            font-style: italic;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* ID Badge */
+        .student-id {
+            background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+            color: #121212;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Loading text style */
+        #loading {
+            color: #c0c0c0;
+            font-style: italic;
+            text-align: center;
+            display: none;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* Responsive - 2 cards per row on tablets */
+        @media (max-width: 1200px) {
+            .student-card {
+                width: calc(33.33% - 25px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .student-card {
+                width: calc(50% - 25px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .student-card {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            #showBtn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Quiz!</h1>
-        <div id="quiz-container">
-            <div id="question-container">
-                <h2 id="question">Question</h2>
-                <div id="answer-buttons" class="btn-grid">
-                    <!-- Buttons will be generated by JS -->
-                </div>
-            </div>
-            <div id="controls">
-                <button id="next-btn" class="btn">Next</button>
-            </div>
-        </div>
-        <div id="results" class="hide">
-            <h2>Quiz Complete!</h2>
-            <p id="score">Your score: </p>
-            <button id="restart-btn" class="btn">Restart Quiz</button>
-        </div>
+
+    <h1>🎓 Student Management System</h1>
+    
+    <div class="button-container">
+        <button id="showBtn">Show Student Details</button>
     </div>
-    <script src="script.js"></script>
+    
+    <div id="loading">📚 Loading student data...</div>
+    <div id="studentContainer"></div>
+
+    <script>
+        $(document).ready(function() {
+            
+            $('#showBtn').click(function() {
+                
+                // Clear previous results
+                $('#studentContainer').empty();
+                $('#loading').show();
+
+                // AJAX GET Request
+                $.ajax({
+                    url: 'students.json',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#loading').hide();
+                        
+                        // Loop through the JSON data
+                        $.each(data, function(index, student) {
+                            
+                            var subjectsHtml = student.subjects.join(", ");
+                            
+                            var cardHtml = `
+                                <div class="student-card">
+                                    <div style="text-align: center;">
+                                        <span class="student-id">${student.id}</span>
+                                    </div>
+                                    <h3>${student.name}</h3>
+                                    <div class="info-row">
+                                        <span class="label">Semester</span>
+                                        <span class="value">${student.semester}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Email</span>
+                                        <span class="value">${student.email}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Contact</span>
+                                        <span class="value">${student.contact}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Subjects</span>
+                                    </div>
+                                    <div class="subjects-list">${subjectsHtml}</div>
+                                </div>
+                            `;
+
+                            $('#studentContainer').append(cardHtml);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        $('#loading').hide();
+                        alert("Error loading JSON file! Please run on local server.");
+                        console.log("Error: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
