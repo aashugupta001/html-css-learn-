@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Image Element</title>
+    <style>
+      * {
+        background-color: white;
+      }
+
+      .thumbnail {
+        width: 345px;
+        height: 345px;
+        object-fit: none;
+        object-position: center;
+        border-width: 2px;
+        border-style: solid;
+        border-color: red;
+      }
+
+      .search-bar {
+        font-size: 20px;
+        margin-left: 12px;
+      }
+
+      .image {
+        width: 200px;
+        border-radius: 15px;
+        border-color: red;
+        object-position: left;
+        border-style: solid;
+      }
+
+      .image2 {
+        width: 270px;
+        height: 270px;
+        object-position: top;
+        border-radius: 1px;
+        object-fit: contain;
+        border-color: blue;
+        border-block-style: solid;
+        border-style: solid;
+      }
+
+      .image3 {
+        border-block-style: solid;
+        border-color: Red;
+        border-width: 3px;
+        border-radius: 105px;
+        width: 200px;
+        height: 200px;
+        border-style: solid;
+      }
+
+      .text {
+        width: 150px;
+        height: 25px;
+        border-radius: 10px;
+        border-color: pink;
+      }
+
+      .text2 {
+        width: 291px;
+        height: 34px;
+        border-radius: 22px;
+        background-color: pink;
+        box-shadow: 5px 10px grey;
+        /* box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green; */
+        text-align: center;
+      }
+
+      .first {
+        color: grey;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: left;
+      }
+
+      .text3 {
+        border-radius: 6px;
+        width: 260px;
+        height: 30px;
+
+        margin-top: 1px;
+        margin-bottom: 10px;
+      }
+      .second {
+        color: grey;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: left;
+      }
+      .join {
+        width: 330px;
+        height: 42px;
+        border-radius: 23px;
+        color: white;
+        background-color: darkblue;
+      }
+      /* .circle{
+            border-block-style: solid;
+            border-color:black;
+            border-width: 3px;
+            border-radius: 105px;
+            width: 30px;
+            height: 30px;
+            border-style: solid;
+            text-align: center;
+            margin-right:10px;
+
+        }
+        .para{
+            color:white;
+            background-color: black;
+            padding-left:34px;
+            
+            border-style: none;
+        }
+        .tweet{
+            text-align: center; */
+
+      /* } */
+      div{
+         width: 600px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+      }
+      
+
+      .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .para {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+      }
+
+      .tweet {
+        background-color: #1da1f2;
+        color: white;
+        border: none;
+        padding: 6px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img class="thumbnail" src="hq720.avif" />
+    <input class="search-bar" type="text" placeholder="search" />
+    <header>
+      <img src="hq720.avif" alt="" class="image" />
+      <img src="hq720.avif" alt="" class="image2" />
+      <img src="hq720.avif" alt="" class="image3" />
+    </header>
+    <input class="text" type="text" placeholder="Search" />
+    <input
+      type="text"
+      class="text2"
+      placeholder="Search Google or type a URL"
+    />
+    <footer>
+      <p class="first">Email</p>
+      <input class="text3" type="text" placeholder="" />
+      <p class="second">
+        By clicking Agree & Join , you agree to the Privacy Policy
+      </p>
+      <button class="join">Agree & JOin</button>
+    </footer>
+    <div>
+      <img scr="hq720.avif" alt="" class="circle" />
+      <p class="para">What's Happening ?</p>
+      <button class="tweet">Tweet</button>
+    
+    </div>
+    
+  </body>
+</html>
